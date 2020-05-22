@@ -1,0 +1,5 @@
+aws_region              = "us-east-1"
+aws_profile             = "maikel_cli_access"
+artifacts_bucket        = "job-scraper-artifacts"
+github_repository_owner = "maikelpenz"
+github_repository_name  = "job-scraper"

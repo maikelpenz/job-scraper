@@ -1,0 +1,8 @@
+__pycache__/
+.vscode
+*.coverage*
+
+# Terraform
+*/.terraform/*
+*.tfstate
+*.tfstate.*
