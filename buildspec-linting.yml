@@ -1,0 +1,12 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt update -qq
+      - apt install python3-pip -y -qq
+      - pip install flake8 --quiet
+  build:
+    commands:
+      # run Flake 8 for code linting
+      - flake8 --statistics

@@ -1,0 +1,13 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - apt update -qq
+      - apt install python3-pip -y -qq
+      - pip install pytest pytest-cov moto --quiet
+      - pip install -r requirements.txt
+  build:
+    commands:
+      # run pytest
+      - pytest -v --disable-pytest-warnings --cov=job_scraper

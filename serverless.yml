@@ -1,0 +1,52 @@
+service: job-scraper
+
+provider:
+  name: aws
+  runtime: python3.6
+  environment:
+    STAGE: ${opt:stage}
+  stackName: ${self:provider.stage}-job-scraper
+  deploymentBucket:
+    name: job-scraper-artifacts
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+
+package:
+  exclude:
+    - node_modules/**
+    - package-lock.json
+    - requirements.txt
+    - __pycache__
+
+functions:
+  job_scraper:
+    handler: job_scraper/scrape.lambda_handler
+    name: ${self:provider.stage}-job-scraper
+    timeout: 600
+    events:
+      - schedule:
+          name: job-scraper-week
+          description: "Calls the Lambda function to scrape the website during the week + Saturday until lunchtime"
+          rate: cron(0 18-9 ? * SUN-FRI *)
+      - schedule:
+          name: job-scraper-weekend
+          description: "Calls the Lambda function to scrape the website once on Sunday"
+          rate: cron(0 23 ? * SAT *)
+    iamRoleStatementsName: ${self:provider.stage}-job-scraper-role
+    iamRoleStatements:
+      - Effect: "Allow"
+        Action:
+          - dynamodb:PutItem
+        Resource: "arn:aws:dynamodb:us-east-1:844814218183:table/jobs"
+      - Effect: "Allow"
+        Action:
+          - secretsmanager:GetSecretValue
+        Resource:
+          - "arn:aws:secretsmanager:us-east-1:844814218183:secret:mpenz-ws-slack-webhook-*"
+          - "arn:aws:secretsmanager:us-east-1:844814218183:secret:gcelmer-ws-slack-webhook-*"
+
+plugins:
+  - serverless-python-requirements
+  - serverless-iam-roles-per-function

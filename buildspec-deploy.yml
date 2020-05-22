@@ -1,0 +1,14 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - npm install --no-progress -g npm --silent
+      - npm install --no-progress -g serverless --silent
+      - npm install --save-dev serverless-python-requirements --silent
+      - npm install --save-dev serverless-iam-roles-per-function --silent
+      - apt update -qq
+      - apt install python3-pip -y -qq
+  build:
+    commands:
+      - serverless deploy --stage $env --package $CODEBUILD_SRC_DIR/target/$env -v -r us-east-1
