@@ -7,7 +7,7 @@ slack_helper = SlackHelper()
 
 def test_send_slack_message_wrong_webhook():
     slack_message_json = {"text": "Unit test message"}
-    webhook = "https://hooks.slack.com/services/WRONG/WRONG/WRONG"
+    webhook = "https://hooks.slack.com/services/TJTMMARB5/BV4KKNVUH/WRONG"
 
     with pytest.raises(SlackException) as e:
         assert slack_helper.send_slack_message(webhook, slack_message_json)
