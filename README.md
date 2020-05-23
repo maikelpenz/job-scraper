@@ -1,7 +1,14 @@
-# job-scraper 
+# Job Scraper
 
-# Run it locally
-/c/Data/Solutions/DataEngineering/job-scraper
-> python -m job_scraper
-> pytest -v --disable-pytest-warnings --cov=job_scraper
-> flake8 --statistics
+## Table of Contents  
+[Architecture](#architecture)  
+[Deployment](#deployment)  
+<a name="architecture"/>
+## Architecture
+
+blabla
+
+&nbsp;<a name="deployment"/>
+## Deployment
+
+blablahe
