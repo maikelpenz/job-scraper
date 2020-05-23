@@ -9,4 +9,3 @@ Deploy terraform infrastructure
 			Inform the token
 	terraform destroy
 		terraform destroy -var-file="terraform-deployment.tfvars"
-		
