@@ -194,6 +194,10 @@ resource "aws_codepipeline" "job-scraper-pipeline" {
     type     = "S3"
   }
 
+  lifecycle {
+    ignore_changes = [stage[0].action[0].configuration]
+  }
+
   stage {
     name = "Source"
 
