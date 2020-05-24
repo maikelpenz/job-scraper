@@ -47,6 +47,22 @@ functions:
           - "arn:aws:secretsmanager:us-east-1:844814218183:secret:mpenz-ws-slack-webhook-*"
           - "arn:aws:secretsmanager:us-east-1:844814218183:secret:gcelmer-ws-slack-webhook-*"
 
+resources:
+  Resources:
+    jobsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: job-scraper
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: N
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+
 plugins:
   - serverless-python-requirements
   - serverless-iam-roles-per-function
