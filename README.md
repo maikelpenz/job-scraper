@@ -3,7 +3,7 @@
 This project collects new Job Listings from this [website](https://www.seek.co.nz/) and notify via slack.
 
 ## Table of Contents  
-[Architecture](#architecture)
+[Architecture](#architecture)  
 [Deployment](#deployment)  
 <a name="architecture"/>
 ## Architecture
