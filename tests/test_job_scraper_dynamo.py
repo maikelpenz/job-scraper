@@ -26,7 +26,7 @@ def dynamodb(aws_credentials):
 @pytest.fixture
 def dynamo_parameters():
     job_scraper_dynamo = JobScraperDynamo()
-    table_name = "jobs"
+    table_name = "job-scraper"
     item = {"id": {"N": "1000"}}
     params = {
         "TableName": table_name,
