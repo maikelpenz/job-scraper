@@ -8,7 +8,11 @@ This project collects new Job Listings from this [website](https://www.seek.co.n
 <a name="architecture"/>
 ## Architecture
 
-![ArchitectureImage](images/architecture.jpeg)
+![ArchitectureImage](images/architecture.jpg)
+
+The output on Slack:
+
+![JobSamples](images/job-samples.jpg)
 
 &nbsp;<a name="deployment"/>
 ## Deployment
