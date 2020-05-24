@@ -12,6 +12,8 @@ This repository is split into two parts:
 * The Scraper code: `job_scraper` folder.
 * The CI/CD pipeline: responsible for deploying the scraper and pushing changes to the code, which lives inside `cicd_infrastructure`.
 
+The [Deployment](#deployment) section below gives you information about how to deploy this project to AWS.
+
 ![ArchitectureImage](images/architecture.jpeg)
 
 
