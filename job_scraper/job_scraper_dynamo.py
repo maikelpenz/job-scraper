@@ -23,7 +23,7 @@ class JobScraperDynamo:
             listing_id = str(listing["id"])
 
             response = self.dynamo_helper.dynamo_persist(
-                "jobs", {"id": {"N": listing_id}}
+                "job-scraper", {"id": {"N": listing_id}}
             )
             if response == "ItemAlreadyExists":
                 listings.remove(listing)
