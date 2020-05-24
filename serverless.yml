@@ -60,7 +60,7 @@ resources:
             AttributeType: N
         KeySchema:
           - AttributeName: id
-            KeyType: N
+            KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

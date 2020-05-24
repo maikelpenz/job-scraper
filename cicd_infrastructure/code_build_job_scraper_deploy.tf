@@ -54,6 +54,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-deploy" {
             "logs:*",
             "lambda:*",
             "cloudformation:*",
+            "dynamodb:*",
             "events:*"
           ],
           "Resource" : "*"
