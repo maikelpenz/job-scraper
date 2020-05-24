@@ -10,7 +10,7 @@ This project collects new Job Listings from this [website](https://www.seek.co.n
 
 ![ArchitectureImage](images/architecture.jpg)
 
-The output on Slack:
+The Slack message:
 
 ![JobSamples](images/job-samples.jpg)
 
