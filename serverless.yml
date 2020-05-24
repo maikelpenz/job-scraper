@@ -39,7 +39,9 @@ functions:
       - Effect: "Allow"
         Action:
           - dynamodb:PutItem
-        Resource: "arn:aws:dynamodb:us-east-1:844814218183:table/jobs"
+        Resource:
+          - "arn:aws:dynamodb:us-east-1:844814218183:table/jobs"
+          - "arn:aws:dynamodb:us-east-1:844814218183:table/job-scraper"
       - Effect: "Allow"
         Action:
           - secretsmanager:GetSecretValue
