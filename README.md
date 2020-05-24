@@ -6,9 +6,8 @@
 <a name="architecture"/>
 ## Architecture
 
-blabla
+
 
 &nbsp;<a name="deployment"/>
 ## Deployment
 
-blablahe
