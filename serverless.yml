@@ -46,8 +46,7 @@ functions:
         Action:
           - secretsmanager:GetSecretValue
         Resource:
-          - "arn:aws:secretsmanager:us-east-1:844814218183:secret:mpenz-ws-slack-webhook-*"
-          - "arn:aws:secretsmanager:us-east-1:844814218183:secret:gcelmer-ws-slack-webhook-*"
+          - "arn:aws:secretsmanager:us-east-1:844814218183:secret:*"
 
 resources:
   Resources:
