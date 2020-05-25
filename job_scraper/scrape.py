@@ -57,7 +57,7 @@ def main(classification: int, keyword: str, slack_webhook_secret: str):
 
 
 def lambda_handler(event, context):
-    with open("job_scraper\job_filters.json") as f:
+    with open("job_scraper/job_filters.json") as f:
         job_filters = json.load(f)
 
     for job_filter in job_filters:

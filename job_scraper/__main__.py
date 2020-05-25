@@ -8,7 +8,7 @@ if __name__ == "__main__":
         profile_name="maikel_cli_access", region_name="us-east-1"
     )
 
-    with open("job_scraper\job_filters.json") as f:
+    with open("job_scraper/job_filters.json") as f:
         job_filters = json.load(f)
 
     for job_filter in job_filters:
