@@ -33,13 +33,13 @@ You need the following to deploy the project:
 
 ### Steps:
 
-1 - Slack
+**1 - Slack**
 
 * [Create a slack channel to receive jobs notifications](https://slack.com/intl/en-nz/help/articles/201402297-Create-a-channel)
 * [Create a slack webhook from your Slack App](https://api.slack.com/apps/AV4KE26U9/incoming-webhooks?)
     <br>&nbsp;&nbsp;&nbsp;Save the generated webhook url somewhere as you will need to use it later
 
-2 - AWS
+**2 - AWS**
 
 * [Create bucket to store deployment artifacts](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
 * [Store slack webhook on secrets manager](https://docs.aws.amazon.com/secretsmanager/latest/userguide/tutorials_basic.html#tutorial-basic-step1)
@@ -50,7 +50,7 @@ You need the following to deploy the project:
         <br>&nbsp;&nbsp;&nbsp;Secret Value: https://hooks.slack.com/services/....
 
 
-3 - Github
+**3 - Github**
 
 * [Clone the Repository](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 * [Create personal Access Token](https://docs.aws.amazon.com/codepipeline/latest/userguide/GitHub-create-personal-token-CLI.html)
@@ -58,7 +58,7 @@ You need the following to deploy the project:
     Follow from step 1 to 6.
     Make sure you save it somewhere safe but with quick access.
 
-4 - Configure cloned repository
+**4 - Configure cloned repository**
 
 important: wherever it asks you to set the bucket use the one created on section (2 - AWS)
 
