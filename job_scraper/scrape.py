@@ -1,3 +1,5 @@
+import json
+
 from job_scraper.job_scraper import JobScraper
 from job_scraper.job_scraper_dynamo import JobScraperDynamo
 from job_scraper.job_scraper_notify import JobScraperNotify
@@ -55,24 +57,8 @@ def main(classification: int, keyword: str, slack_webhook_secret: str):
 
 
 def lambda_handler(event, context):
-    # Parameters
-    job_filters = [
-        {
-            "classification": 6281,
-            "keyword": "data",
-            "slack_webhook_secret": "mpenz-ws-slack-webhook",
-        },
-        {
-            "classification": 6281,
-            "keyword": "cloud",
-            "slack_webhook_secret": "mpenz-ws-slack-webhook",
-        },
-        {
-            "classification": 6281,
-            "keyword": "test",
-            "slack_webhook_secret": "gcelmer-ws-slack-webhook",
-        },
-    ]
+    with open("job_scraper\job_filters.json") as f:
+        job_filters = json.load(f)
 
     for job_filter in job_filters:
         classification = job_filter.get("classification")
