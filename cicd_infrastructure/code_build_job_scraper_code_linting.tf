@@ -20,7 +20,6 @@ resource "aws_iam_role" "codebuild-job-scraper-code-linting" {
   path                  = "/service-role/"
 }
 
-# terraform import aws_iam_policy.codebuild-job-scraper-code-linting arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper- build-us-east-1
 resource "aws_iam_policy" "codebuild-job-scraper-code-linting" {
   description = "Policy used in trust relationship with CodeBuild"
   name        = "codebuild-job-scraper-code-linting"
@@ -31,8 +30,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-code-linting" {
         {
           "Effect" : "Allow",
           "Resource" : [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-code-linting",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-code-linting:*"
+            "*"
           ],
           "Action" : [
             "logs:CreateLogGroup",
@@ -63,7 +61,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-code-linting" {
             "codebuild:BatchPutTestCases"
           ],
           "Resource" : [
-            "arn:aws:codebuild:us-east-1:844814218183:report-group/job-scraper-code-linting-*"
+            "*"
           ]
         }
       ]
@@ -72,7 +70,6 @@ resource "aws_iam_policy" "codebuild-job-scraper-code-linting" {
   )
 }
 
-# terraform import aws_iam_role_policy_attachment.codebuild-job-scraper-code-linting codebuild-job-scraper-code-linting-service-role/arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper-build-us-east-1
 resource "aws_iam_role_policy_attachment" "codebuild-job-scraper-code-linting" {
   role       = aws_iam_role.codebuild-job-scraper-code-linting.name
   policy_arn = aws_iam_policy.codebuild-job-scraper-code-linting.arn

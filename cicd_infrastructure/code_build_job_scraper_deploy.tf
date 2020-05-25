@@ -20,7 +20,6 @@ resource "aws_iam_role" "codebuild-job-scraper-deploy" {
   path                  = "/service-role/"
 }
 
-# terraform import aws_iam_policy.codebuild-job-scraper-deploy arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper-deploy-us-east-1
 resource "aws_iam_policy" "codebuild-job-scraper-deploy" {
   description = "Policy used in trust relationship with CodeBuild"
   name        = "codebuild-job-scraper-deploy"
@@ -40,9 +39,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-deploy" {
             "codebuild:BatchPutTestCases"
           ],
           "Resource" : [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-deploy",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-deploy:*",
-            "arn:aws:codebuild:us-east-1:844814218183:report-group/job-scraper-deploy-*"
+            "*"
           ]
         },
         {
@@ -64,8 +61,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-deploy" {
           "Effect" : "Allow",
           "Action" : "logs:CreateLogGroup",
           "Resource" : [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-deploy",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-deploy:*"
+            "*"
           ]
         }
       ]
@@ -74,7 +70,6 @@ resource "aws_iam_policy" "codebuild-job-scraper-deploy" {
   )
 }
 
-# terraform import aws_iam_role_policy_attachment.codebuild-job-scraper-deploy codebuild-job-scraper-deploy-service-role/arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper-build-us-east-1
 resource "aws_iam_role_policy_attachment" "codebuild-job-scraper-deploy" {
   role       = aws_iam_role.codebuild-job-scraper-deploy.name
   policy_arn = aws_iam_policy.codebuild-job-scraper-deploy.arn

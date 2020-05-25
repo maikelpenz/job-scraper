@@ -20,7 +20,6 @@ resource "aws_iam_role" "codebuild-job-scraper-unit-testing" {
   path                  = "/service-role/"
 }
 
-# terraform import aws_iam_policy.codebuild-job-scraper-unit-testing arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper- build-us-east-1
 resource "aws_iam_policy" "codebuild-job-scraper-unit-testing" {
   description = "Policy used in trust relationship with CodeBuild"
   name        = "codebuild-job-scraper-unit-testing"
@@ -44,11 +43,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-unit-testing" {
             "s3:GetObjectVersion"
           ],
           "Resource" : [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-unit-testing",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-unit-testing:*",
-            "arn:aws:s3:::codepipeline-us-east-1-*",
-            "arn:aws:s3:::job-scraper-artifacts*",
-            "arn:aws:codebuild:us-east-1:844814218183:report-group/job-scraper-unit-testing-*"
+            "*"
           ]
         },
         {
@@ -69,8 +64,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-unit-testing" {
           "Effect" : "Allow",
           "Action" : "logs:CreateLogGroup",
           "Resource" : [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-unit-testing",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-unit-testing:*"
+            "*"
           ]
         }
       ]
@@ -79,7 +73,6 @@ resource "aws_iam_policy" "codebuild-job-scraper-unit-testing" {
   )
 }
 
-# terraform import aws_iam_role_policy_attachment.codebuild-job-scraper-unit-testing codebuild-job-scraper-unit-testing-service-role/arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper-build-us-east-1
 resource "aws_iam_role_policy_attachment" "codebuild-job-scraper-unit-testing" {
   role       = aws_iam_role.codebuild-job-scraper-unit-testing.name
   policy_arn = aws_iam_policy.codebuild-job-scraper-unit-testing.arn

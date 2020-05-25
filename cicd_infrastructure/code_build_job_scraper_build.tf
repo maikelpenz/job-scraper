@@ -1,4 +1,3 @@
-# terraform import aws_iam_role.codebuild-job-scraper-build codebuild-job-scraper-build-service-role
 resource "aws_iam_role" "codebuild-job-scraper-build" {
   assume_role_policy = jsonencode(
     {
@@ -20,7 +19,6 @@ resource "aws_iam_role" "codebuild-job-scraper-build" {
   path                  = "/service-role/"
 }
 
-# terraform import aws_iam_policy.codebuild-job-scraper-build arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper- build-us-east-1
 resource "aws_iam_policy" "codebuild-job-scraper-build" {
   description = "Policy used in trust relationship with CodeBuild"
   name        = "codebuild-job-scraper-build"
@@ -36,8 +34,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-build" {
           ]
           Effect = "Allow"
           Resource = [
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-build",
-            "arn:aws:logs:us-east-1:844814218183:log-group:/aws/codebuild/job-scraper-build:*",
+            "*"
           ]
         },
         {
@@ -63,7 +60,7 @@ resource "aws_iam_policy" "codebuild-job-scraper-build" {
           ]
           Effect = "Allow"
           Resource = [
-            "arn:aws:codebuild:us-east-1:844814218183:report-group/job-scraper-build-*",
+            "*",
           ]
         },
       ]
@@ -72,7 +69,6 @@ resource "aws_iam_policy" "codebuild-job-scraper-build" {
   )
 }
 
-# terraform import aws_iam_role_policy_attachment.codebuild-job-scraper-build codebuild-job-scraper-build-service-role/arn:aws:iam::844814218183:policy/service-role/CodeBuildBasePolicy-job-scraper-build-us-east-1
 resource "aws_iam_role_policy_attachment" "codebuild-job-scraper-build" {
   role       = aws_iam_role.codebuild-job-scraper-build.name
   policy_arn = aws_iam_policy.codebuild-job-scraper-build.arn
