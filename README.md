@@ -21,6 +21,8 @@ This repository is split into two parts:
 * The Scraper code: `job_scraper` folder.
 * The CI/CD pipeline: responsible for deploying the scraper and pushing changes to the code, which lives inside `cicd_infrastructure`.
 
+<br>
+
 ### .: Prerequisites: :.
 You need the following to deploy the project:
 * [Terraform](https://www.terraform.io/downloads.html)
@@ -31,9 +33,9 @@ You need the following to deploy the project:
 * [Slack Workspace](https://slack.com/create#email) 
 * [Slack App](https://api.slack.com/apps?new_app=1)
 
-### .: Installation & Configuration: :.
-
 <br>
+
+### .: Installation & Configuration: :.
 
 **1 - Slack**
 
