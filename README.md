@@ -33,11 +33,14 @@ You need the following to deploy the project:
 
 ### Steps:
 
+
 **1 - Slack**
 
 * [Create a slack channel to receive jobs notifications](https://slack.com/intl/en-nz/help/articles/201402297-Create-a-channel)
 * [Create a slack webhook from your Slack App](https://api.slack.com/apps/AV4KE26U9/incoming-webhooks?)
     <br>&nbsp;&nbsp;&nbsp;Save the generated webhook url somewhere as you will need to use it later
+
+<br>
 
 **2 - AWS**
 
@@ -49,6 +52,7 @@ You need the following to deploy the project:
         <br>&nbsp;&nbsp;&nbsp;Secret Key: mpenz-ws-slack-webhook
         <br>&nbsp;&nbsp;&nbsp;Secret Value: https://hooks.slack.com/services/....
 
+<br>
 
 **3 - Github**
 
@@ -58,18 +62,77 @@ You need the following to deploy the project:
     Follow from step 1 to 6.
     Make sure you save it somewhere safe but with quick access.
 
+<br>
+
 **4 - Configure cloned repository**
 
-important: wherever it asks you to set the bucket use the one created on section (2 - AWS)
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-* Update terraform variables accordingly
-    <br>&nbsp;&nbsp;&nbsp;files: 
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cicd_infrastructure\terraform-backend.tfvars
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cicd_infrastructure\terraform-deployment.tfvars
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
-* Update serverless file
-    <br>&nbsp;&nbsp;&nbsp;file:
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;serverless.yml
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 
-    &nbsp;&nbsp;&nbsp;variables:
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deploymentBucket: set the bucket name for serverless artifacts
+<table>
+  <tr>
+    <th>File</th>
+    <th>Variable</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>cicd_infrastructure\terraform-backend.tfvars</td>
+    <td>region</td>
+    <td>target AWS Region where to deploy the infrastructure</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>profile</td>
+    <td>AWS Profile name configured on your computer</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>bucket</td>
+    <td>Deployment artifacts. Created as part of (2 - AWS)</td>
+  </tr>
+  <tr>
+    <td>cicd_infrastructure\terraform-deployment.tfvars</td>
+    <td>aws_region</td>
+    <td>target AWS Region where to deploy the infrastructure</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>aws_profile</td>
+    <td>AWS Profile name configured on your computer</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>artifacts_bucket</td>
+    <td>Deployment artifacts. Created as part of (2 - AWS)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>github_repository_owner</td>
+    <td>your github account (as you cloned the repository)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>github_repository_name</td>
+    <td>job-scraper</td>
+  </tr>
+  <tr>
+    <td>serverless.yml</td>
+    <td>deploymentBucket</td>
+    <td>Deployment artifacts. Created as part of (2 - AWS)</td>
+  </tr>
+</table>
