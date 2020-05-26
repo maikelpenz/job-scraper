@@ -126,3 +126,18 @@ You need the following to deploy the project:
 
 ### .: Deploy CI/CD pipeline: :.
 
+Required:
+
+[Init](https://www.terraform.io/docs/commands/init.html)<br>
+    `terraform init -backend-config="terraform-backend.tfvars"`
+
+[Apply](https://www.terraform.io/docs/commands/apply.html)<br>
+    `terraform apply -var-file="terraform-deployment.tfvars"`
+
+Optional:
+
+[Plan](https://www.terraform.io/docs/commands/plan.html)<br>
+    `terraform plan -var-file="terraform-deployment.tfvars"`
+
+[Destroy](https://www.terraform.io/docs/commands/destroy.html)<br>
+    `terraform destroy -var-file="terraform-deployment.tfvars"`
