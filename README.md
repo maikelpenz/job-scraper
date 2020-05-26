@@ -66,6 +66,9 @@ You need the following to deploy the project:
 
 **4 - Configure cloned repository**
 
+<!DOCTYPE html>
+<html>
+<head>
 <style>
 table {
   font-family: arial, sans-serif;
@@ -83,6 +86,8 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 </style>
+</head>
+<body>
 
 <table>
   <tr>
