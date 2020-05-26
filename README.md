@@ -66,29 +66,6 @@ You need the following to deploy the project:
 
 **4 - Configure cloned repository**
 
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
-<body>
-
 <table>
   <tr>
     <th>File</th>
