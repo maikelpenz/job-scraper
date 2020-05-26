@@ -31,7 +31,7 @@ You need the following to deploy the project:
 * [Slack Workspace](https://slack.com/create#email) 
 * [Slack App](https://api.slack.com/apps?new_app=1)
 
-### Steps:
+### Installation & Configuration:
 
 
 **1 - Slack**
@@ -118,3 +118,8 @@ You need the following to deploy the project:
     <td>Deployment artifacts. Created as part of (2 - AWS)</td>
   </tr>
 </table>
+
+<br>
+
+### Deploy CI/CD pipeline:
+
