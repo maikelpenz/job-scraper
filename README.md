@@ -76,6 +76,21 @@ You need the following to deploy the project:
     <th>Description</th>
   </tr>
   <tr>
+    <td>job_filters.json</td>
+    <td>classification</td>
+    <td>Classification from Website. 6281 = Technology</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>keyword</td>
+    <td>What to filter for. E.g: data, cloud, test</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>slack_webhook_secret</td>
+    <td>Name of secret created as part of (2 - AWS)</td>
+  </tr>
+  <tr>
     <td>cicd_infrastructure\terraform-backend.tfvars</td>
     <td>region</td>
     <td>target AWS Region where to deploy the infrastructure</td>
