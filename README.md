@@ -141,3 +141,8 @@ Optional:
 
 [Destroy](https://www.terraform.io/docs/commands/destroy.html)<br>
     `terraform destroy -var-file="terraform-deployment.tfvars"`
+
+Once terraform finishes applying the infrastructure you can find the CI/CD pipeline on your AWS account.
+If you log into your AWS account you can check the [Code Pipeline](https://aws.amazon.com/codepipeline/) service.
+
+![CICDImage](images/cicd_pipeline.jpg)
