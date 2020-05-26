@@ -145,4 +145,4 @@ Optional:
 Once terraform finishes applying the infrastructure you can find the CI/CD pipeline on your AWS account.
 If you log into your AWS account you can check the [Code Pipeline](https://aws.amazon.com/codepipeline/) service.
 
-![cicdImage](images/cicd_pipeline.jpg)
+![cicd](images/cicd.jpg)
