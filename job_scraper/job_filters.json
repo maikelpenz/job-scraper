@@ -11,6 +11,16 @@
     },
     {
         "classification": 6281,
+        "keyword": "aws",
+        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "devops",
+        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
         "keyword": "test",
         "slack_webhook_secret": "gcelmer-ws-slack-webhook"
     }
