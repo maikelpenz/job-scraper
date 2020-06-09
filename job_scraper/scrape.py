@@ -25,7 +25,7 @@ def main(classification: int, keyword: str, slack_webhook_secret: str):
     print(f"Starting: Classification: {classification} \n Keyword: {keyword}")
     print("")
 
-    # Get Today's and Yesterday's Listings
+    # Get Today's and Yesterday's Listings.
     scraper.scrape_listings()
 
     # Filter the keyword from the list of listings
