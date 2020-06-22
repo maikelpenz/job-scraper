@@ -23,5 +23,10 @@
         "classification": 6281,
         "keyword": "test",
         "slack_webhook_secret": "gcelmer-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "QA",
+        "slack_webhook_secret": "gcelmer-ws-slack-webhook"
     }
 ]
