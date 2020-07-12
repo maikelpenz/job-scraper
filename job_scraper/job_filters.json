@@ -1,22 +1,7 @@
 [
     {
         "classification": 6281,
-        "keyword": "data",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
-    },
-    {
-        "classification": 6281,
-        "keyword": "cloud",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
-    },
-    {
-        "classification": 6281,
-        "keyword": "aws",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
-    },
-    {
-        "classification": 6281,
-        "keyword": "devops",
+        "keyword": "data engineer",
         "slack_webhook_secret": "mpenz-ws-slack-webhook"
     },
     {
