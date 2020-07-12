@@ -35,7 +35,7 @@ class JobScraper:
         """
         current_page = 1
         while True:
-            # keep track of listings before new page
+            # keep track of listings before new page.
             current_listings = self.listings
 
             # get page listings
