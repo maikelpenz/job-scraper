@@ -23,9 +23,9 @@ class JobScraperDynamo:
             listing_id = str(listing["id"])
 
             response = self.dynamo_helper.dynamo_persist(
-                "job-scraper", 
+                "job-scraper",
                 {
-                    "id": {"N": listing_id}, 
+                    "id": {"N": listing_id},
                     "enriched": {"S": "NEW"}
                 }
             )
