@@ -139,7 +139,7 @@ You need the following to deploy the project:
 
 <br>
 
-### .: Deploy CI/CD pipeline: :.
+### .: Deploy CI/CD pipeline :.
 
 Required:
 
@@ -161,3 +161,24 @@ Once terraform finishes applying the infrastructure you can find the CI/CD pipel
 If you log into your AWS account you can check the [Code Pipeline](https://aws.amazon.com/codepipeline/) service.
 
 ![cicd](images/cicd.jpg)
+
+<br>
+
+### .: Local Development :.
+
+If you want to run `tests` and `linting` locally use `pipenv`
+
+* Install `pipenv` on your machine<br>
+  `pip install pipenv`
+
+* Sync<br>
+  `pipenv sync --dev`
+
+* Enter shell mode<br>
+  `pipenv shell`
+
+* Run linting<br>
+  `flake8 --statistics`
+
+* Run tests<br>
+  `pytest -v --disable-pytest-warnings --cov=job_scraper`
