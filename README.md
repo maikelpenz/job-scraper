@@ -162,6 +162,8 @@ If you log into your AWS account you can check the [Code Pipeline](https://aws.a
 
 ![cicd](images/cicd.jpg)
 
+<br>
+
 ### .: Local Development :.
 
 If you want to run `tests` and `linting` locally use `pipenv`
