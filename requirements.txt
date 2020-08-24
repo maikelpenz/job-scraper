@@ -1,5 +1,0 @@
-boto3
-pandas
-requests
-tabulate
-pytest-freezegun
