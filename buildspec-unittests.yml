@@ -5,8 +5,9 @@ phases:
     commands:
       - apt update -qq
       - apt install python3-pip -y -qq
-      - pip install pytest pytest-cov moto --quiet
-      - pip install -r requirements.txt
+      - pip install pipenv --quiet
+      - pipenv sync --dev
+      - pipenv shell
   build:
     commands:
       # run pytest

@@ -2,7 +2,7 @@ service: job-scraper
 
 provider:
   name: aws
-  runtime: python3.6
+  runtime: python3.7
   environment:
     STAGE: ${opt:stage}
   stackName: ${self:provider.stage}-job-scraper
