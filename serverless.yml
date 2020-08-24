@@ -28,7 +28,7 @@ functions:
     events:
       - schedule:
           name: job-scraper-week
-          description: "Calls the Lambda function to scrape the website during the week + Saturday until lunchtime"
+          description: "Calls the Lambda function to scrape the website during the week + Saturday until mid day"
           rate: cron(0 18-9 ? * SUN-FRI *)
       - schedule:
           name: job-scraper-weekend
