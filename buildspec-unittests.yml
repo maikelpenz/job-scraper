@@ -7,8 +7,7 @@ phases:
       - apt install python3-pip -y -qq
       - pip install pipenv --quiet
       - pipenv sync --dev
-      - pipenv shell
   build:
     commands:
       # run pytest
-      - pytest -v --disable-pytest-warnings --cov=job_scraper
+      - pipenv run pytest -v --disable-pytest-warnings --cov=job_scraper
