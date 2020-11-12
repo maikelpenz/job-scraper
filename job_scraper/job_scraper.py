@@ -8,7 +8,7 @@ from .dates_helper import DatesHelper
 
 class JobScraper:
     def __init__(self, classification: int, keyword: str) -> None:
-        """ Constructor method
+        """Constructor method
 
         Arguments:
             classification {int} -- Job Classification (from the website)
@@ -68,18 +68,17 @@ class JobScraper:
         response = response["data"]
 
         date_filter_today = self.dates_helper.get_datetime_now_in_date()
-        date_filter_yesterday = self.dates_helper.get_date_days_ago(
-            number_of_days=1
-        )  # noqa
+        date_filter_yesterday = self.dates_helper.get_date_days_ago(number_of_days=1)  # noqa
         dates_filter = [date_filter_yesterday, date_filter_today]
 
         return set(
-            (listing["id"], listing["title"],)  # return listing id and title
+            (
+                listing["id"],
+                listing["title"],
+            )  # return listing id and title
             for listing in response  # for every listing in reponse
             # only for listings that match my date filter
-            if self.dates_helper.format_datetime_to_date(
-                listing["listingDate"][:-1]
-            )  # noqa
+            if self.dates_helper.format_datetime_to_date(listing["listingDate"][:-1])  # noqa
             in dates_filter
         )
 
@@ -127,9 +126,11 @@ class JobScraper:
                 "workType": response["workType"],
                 "salary": response["salary"],
                 "url": f"https://www.seek.co.nz/job/{listing_id}",
-                "logo_url": response["branding"]["logo"]["url"]
+                "logo_url": response["branding"]["assets"]["logo"]["url"]
                 if "branding" in response
-                else "https://seekconz.corewebdna.net.au/template_images/og-image.jpg",  # noqa
+                and "assets" in response["branding"]
+                and "logo" in response["branding"]["assets"]
+                else "https://www.seek.co.nz/content/images/logos/logo-seek-share2.png",  # noqa
             }
 
             self.enriched_listings.append(listing_details)
