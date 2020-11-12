@@ -4,7 +4,7 @@ phases:
   install:
     commands:
       - npm install --no-progress -g npm --silent
-      - npm install --no-progress -g serverless --silent
+      - npm install --no-progress -g serverless@1.79.0 --silent
       - npm install --save-dev serverless-python-requirements --silent
       - npm install --save-dev serverless-iam-roles-per-function --silent
       - apt update -qq
