@@ -6,6 +6,16 @@
     },
     {
         "classification": 6281,
+        "keyword": "data lead",
+        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "team lead",
+        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
         "keyword": "test",
         "slack_webhook_secret": "gcelmer-ws-slack-webhook"
     },
@@ -13,5 +23,15 @@
         "classification": 6281,
         "keyword": "QA",
         "slack_webhook_secret": "gcelmer-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "Software",
+        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "Web",
+        "slack_webhook_secret": "lpenz-ws-slack-webhook"
     }
 ]
