@@ -33,5 +33,20 @@
         "classification": 6281,
         "keyword": "Web",
         "slack_webhook_secret": "lpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "React",
+        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": ".NET",
+        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+    },
+    {
+        "classification": 6281,
+        "keyword": "C#",
+        "slack_webhook_secret": "lpenz-ws-slack-webhook"
     }
 ]
