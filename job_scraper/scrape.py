@@ -6,7 +6,9 @@ from job_scraper.job_scraper_notify import JobScraperNotify
 from job_scraper.job_scraper_pandas import JobScraperPandas
 
 
-def main(classification: int, keyword: str, slack_webhook_secret: str, country: str):
+def main(
+    classification: int, keyword: str, slack_webhook_secret: str, country: str
+):  # noqa
     """Used to test the package locally and also to be called by the Lambda
 
     Arguments:
@@ -26,7 +28,7 @@ def main(classification: int, keyword: str, slack_webhook_secret: str, country: 
 
     print("")
     print(
-        f"Starting: Country: {country} \n Classification: {classification} \n Keyword: {keyword}"
+        f"Starting: Country: {country} \n Classification: {classification} \n Keyword: {keyword}"  # noqa
     )
     print("")
 

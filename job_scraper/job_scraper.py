@@ -7,7 +7,7 @@ from .dates_helper import DatesHelper
 
 
 class JobScraper:
-    def __init__(self, country: str, classification: int, keyword: str) -> None:
+    def __init__(self, country: str, classification: int, keyword: str) -> None:  # noqa
         """Constructor method
 
         Arguments:
