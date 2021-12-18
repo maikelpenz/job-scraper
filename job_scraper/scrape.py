@@ -6,8 +6,8 @@ from job_scraper.job_scraper_notify import JobScraperNotify
 from job_scraper.job_scraper_pandas import JobScraperPandas
 
 
-def main(classification: int, keyword: str, slack_webhook_secret: str):
-    """ Used to test the package locally and also to be called by the Lambda
+def main(classification: int, keyword: str, slack_webhook_secret: str, country: str):
+    """Used to test the package locally and also to be called by the Lambda
 
     Arguments:
         classification {int} -- Job Classification (from the website)
@@ -15,14 +15,19 @@ def main(classification: int, keyword: str, slack_webhook_secret: str):
         slack_webhook_secret {str} -- Name of the secret to retrieve the
                                     slack webhook to send the notification
                                     (e.g: mpenz-ws-slack-webhook)
+        country {str} -- e.g: AU or NZ
     """
-    scraper = JobScraper(classification=classification, keyword=keyword)
+    scraper = JobScraper(
+        country=country, classification=classification, keyword=keyword
+    )
     job_scraper_dynamo = JobScraperDynamo()
     job_scraper_notify = JobScraperNotify()
     job_scraper_pandas = JobScraperPandas()
 
     print("")
-    print(f"Starting: Classification: {classification} \n Keyword: {keyword}")
+    print(
+        f"Starting: Country: {country} \n Classification: {classification} \n Keyword: {keyword}"
+    )
     print("")
 
     # Get Today's and Yesterday's Listings.
@@ -64,9 +69,11 @@ def lambda_handler(event, context):
         classification = job_filter.get("classification")
         keyword = job_filter.get("keyword")
         slack_webhook_secret = job_filter.get("slack_webhook_secret")
+        country = job_filter.get("country")
 
         main(
             classification=classification,
             keyword=keyword,
             slack_webhook_secret=slack_webhook_secret,
+            country=country,
         )

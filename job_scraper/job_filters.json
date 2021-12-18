@@ -2,56 +2,91 @@
     {
         "classification": 6281,
         "keyword": "data engineer",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+        "slack_webhook_secret": "mpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "data lead",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+        "slack_webhook_secret": "mpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "team lead",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+        "slack_webhook_secret": "mpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "data architect",
-        "slack_webhook_secret": "mpenz-ws-slack-webhook"
+        "slack_webhook_secret": "mpenz-ws-slack-webhook",
+        "country": "NZ"
+    },
+    {
+        "classification": 6281,
+        "keyword": "data engineer",
+        "slack_webhook_secret": "mpenz-au-ws-slack-webhook",
+        "country": "AU"
+    },
+    {
+        "classification": 6281,
+        "keyword": "data lead",
+        "slack_webhook_secret": "mpenz-au-ws-slack-webhook",
+        "country": "AU"
+    },
+    {
+        "classification": 6281,
+        "keyword": "team lead",
+        "slack_webhook_secret": "mpenz-au-ws-slack-webhook",
+        "country": "AU"
+    },
+    {
+        "classification": 6281,
+        "keyword": "data architect",
+        "slack_webhook_secret": "mpenz-au-ws-slack-webhook",
+        "country": "AU"
     },
     {
         "classification": 6281,
         "keyword": "test",
-        "slack_webhook_secret": "gcelmer-ws-slack-webhook"
+        "slack_webhook_secret": "gcelmer-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "QA",
-        "slack_webhook_secret": "gcelmer-ws-slack-webhook"
+        "slack_webhook_secret": "gcelmer-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "Software",
-        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+        "slack_webhook_secret": "lpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "Web",
-        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+        "slack_webhook_secret": "lpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "React",
-        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+        "slack_webhook_secret": "lpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": ".NET",
-        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+        "slack_webhook_secret": "lpenz-ws-slack-webhook",
+        "country": "NZ"
     },
     {
         "classification": 6281,
         "keyword": "C#",
-        "slack_webhook_secret": "lpenz-ws-slack-webhook"
+        "slack_webhook_secret": "lpenz-ws-slack-webhook",
+        "country": "NZ"
     }
 ]

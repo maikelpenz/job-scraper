@@ -7,13 +7,15 @@ from .dates_helper import DatesHelper
 
 
 class JobScraper:
-    def __init__(self, classification: int, keyword: str) -> None:
+    def __init__(self, country: str, classification: int, keyword: str) -> None:
         """Constructor method
 
         Arguments:
+            country {str} -- e.g: AU or NZ
             classification {int} -- Job Classification (from the website)
             keyword {str} -- Keyword to filter listings (e.g: data)
         """
+        self.country = country
         self.classification = classification
         self.keyword = keyword
         self.listings = set()
@@ -61,14 +63,22 @@ class JobScraper:
         returns:
             {set} -- Unique collection of Listing Id's
         """
+        country_url = {
+            "NZ": {"siteKey": "NZ-Main", "where": "All+New+Zealand"},
+            "AU": {"siteKey": "AU-Main", "where": "All+Australia"},
+        }
+        site_key = country_url.get(self.country).get("siteKey")
+        where = country_url.get(self.country).get("where")
 
-        url = f"https://jobsearch-api.cloud.seek.com.au/search?siteKey=NZ-Main&sourcesystem=houston&where=All+New+Zealand&page={page}&seekSelectAllPages=true&classification={self.classification}&include=seodata&isDesktop=true&sortmode=ListedDate"  # noqa
+        url = f"https://jobsearch-api.cloud.seek.com.au/search?siteKey={site_key}&sourcesystem=houston&where={where}&page={page}&seekSelectAllPages=true&classification={self.classification}&include=seodata&isDesktop=true&sortmode=ListedDate"  # noqa
         response = requests.get(url)
         response = json.loads(response.text)
         response = response["data"]
 
         date_filter_today = self.dates_helper.get_datetime_now_in_date()
-        date_filter_yesterday = self.dates_helper.get_date_days_ago(number_of_days=1)  # noqa
+        date_filter_yesterday = self.dates_helper.get_date_days_ago(
+            number_of_days=1
+        )  # noqa
         dates_filter = [date_filter_yesterday, date_filter_today]
 
         return set(
@@ -78,7 +88,9 @@ class JobScraper:
             )  # return listing id and title
             for listing in response  # for every listing in reponse
             # only for listings that match my date filter
-            if self.dates_helper.format_datetime_to_date(listing["listingDate"][:-1])  # noqa
+            if self.dates_helper.format_datetime_to_date(
+                listing["listingDate"][:-1]
+            )  # noqa
             in dates_filter
         )
 
@@ -117,6 +129,12 @@ class JobScraper:
             response = requests.get(url)
             response = json.loads(response.text)
 
+            listing_url = (
+                f"https://www.seek.co.nz/job/{listing_id}"
+                if self.country == "NZ"
+                else f"https://www.seek.com.au/job/{listing_id}"
+            )
+
             listing_details = {
                 "id": listing_id,
                 "title": listing_title,
@@ -125,7 +143,7 @@ class JobScraper:
                 "area": response["locationHierarchy"]["area"],
                 "workType": response["workType"],
                 "salary": response["salary"],
-                "url": f"https://www.seek.co.nz/job/{listing_id}",
+                "url": listing_url,
                 "logo_url": response["branding"]["assets"]["logo"]["url"]
                 if "branding" in response
                 and "assets" in response["branding"]
