@@ -12,4 +12,4 @@ phases:
       - apt install python3-pip -y -qq
   build:
     commands:
-      - serverless deploy --stage $env --package $CODEBUILD_SRC_DIR/target/$env -v -r us-east-1
+      - serverless deploy --stage $env --package $CODEBUILD_SRC_DIR/target/$env -r us-east-1 --verbose

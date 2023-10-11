@@ -13,7 +13,7 @@ phases:
   build:
     commands:
       - mkdir -p target/stg
-      - serverless package --package target/stg --stage stg -v -r us-east-1
+      - serverless package --package target/stg --stage stg -r us-east-1 --verbose
 artifacts:
   files:
     - target/**/*
