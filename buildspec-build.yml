@@ -18,7 +18,6 @@ phases:
       - which python
       - python --version
       - poetry export --without-hashes -f requirements.txt -o requirements.txt --with-credentials
-      - less requirements.txt
       - mkdir -p target/stg
       - serverless package --package target/stg --stage stg -r us-east-1 --verbose
 artifacts:
