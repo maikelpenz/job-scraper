@@ -2,7 +2,7 @@ import os
 
 import boto3
 import pytest
-from moto import mock_dynamodb2
+from moto import mock_dynamodb
 
 from job_scraper.dynamo_helper import DynamoException, DynamoHelper
 
@@ -18,7 +18,7 @@ def aws_credentials():
 
 @pytest.fixture
 def dynamodb(aws_credentials):
-    with mock_dynamodb2():
+    with mock_dynamodb():
         yield boto3.client("dynamodb", region_name="us-east-1")
 
 
@@ -40,14 +40,14 @@ def dynamo_parameters():
     return dynamo_helper, table_name, params, item
 
 
-@mock_dynamodb2
+@mock_dynamodb
 def test_dynamo_persist_success(dynamodb, dynamo_parameters):
     dynamo_helper, table_name, params, item = dynamo_parameters
     dynamodb.create_table(**params)
     dynamo_helper.dynamo_persist(table_name, item)
 
 
-@mock_dynamodb2
+@mock_dynamodb
 def test_dynamo_persist_item_exists(dynamodb, dynamo_parameters):
     dynamo_helper, table_name, params, item = dynamo_parameters
 
@@ -62,7 +62,7 @@ def test_dynamo_persist_item_exists(dynamodb, dynamo_parameters):
     assert response == "ItemAlreadyExists"
 
 
-@mock_dynamodb2
+@mock_dynamodb
 def test_dynamo_persist_invalid_table_name(dynamodb, dynamo_parameters):
     dynamo_helper, table_name, params, item = dynamo_parameters
 
