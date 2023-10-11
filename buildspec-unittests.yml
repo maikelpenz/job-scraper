@@ -5,9 +5,9 @@ phases:
     commands:
       - apt update -qq
       - apt install python3-pip -y -qq
-      - pip install pipenv --quiet
-      - pipenv sync --dev
+      - pip install poetry --quiet
+      - poetry install
   build:
     commands:
       # run pytest
-      - pipenv run pytest -v --disable-pytest-warnings --cov=job_scraper
+      - poetry run pytest -v --disable-pytest-warnings --cov=job_scraper
