@@ -15,9 +15,11 @@ if __name__ == "__main__":
         classification = job_filter.get("classification")
         keyword = job_filter.get("keyword")
         slack_webhook_secret = job_filter.get("slack_webhook_secret")
+        country = job_filter.get("country")
 
         scrape.main(
             classification=classification,
             keyword=keyword,
             slack_webhook_secret=slack_webhook_secret,
+            country=country,
         )

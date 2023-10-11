@@ -70,7 +70,7 @@ class JobScraper:
         site_key = country_url.get(self.country).get("siteKey")
         where = country_url.get(self.country).get("where")
 
-        url = f"https://jobsearch-api.cloud.seek.com.au/search?siteKey={site_key}&sourcesystem=houston&where={where}&page={page}&seekSelectAllPages=true&classification={self.classification}&include=seodata&isDesktop=true&sortmode=ListedDate"  # noqa
+        url = f"https://www.seek.co.nz/api/chalice-search/v4/search?siteKey={site_key}&sourcesystem=houston&where={where}&page={page}&seekSelectAllPages=true&classification={self.classification}&include=seodata&isDesktop=true&sortmode=ListedDate"  # noqa
         response = requests.get(url)
         response = json.loads(response.text)
         response = response["data"]
