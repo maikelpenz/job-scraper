@@ -1,6 +1,6 @@
 # Job Scraper
 
-This project collects new Job Listings from this [website](https://www.seek.co.nz/) and notify about them via slack
+This project collects new Job Listings from this [website](https://www.seek.co.nz/) and notify about them via slack.
 
 ## Table of Contents  
 [Architecture](#architecture)  
