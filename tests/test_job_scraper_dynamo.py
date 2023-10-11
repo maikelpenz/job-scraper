@@ -1,7 +1,7 @@
 import os
 
 import pytest
-from moto import mock_dynamodb2
+from moto import mock_dynamodb
 import boto3
 
 
@@ -19,7 +19,7 @@ def aws_credentials():
 
 @pytest.fixture
 def dynamodb(aws_credentials):
-    with mock_dynamodb2():
+    with mock_dynamodb():
         yield boto3.client("dynamodb", region_name="us-east-1")
 
 
@@ -41,7 +41,7 @@ def dynamo_parameters():
     return job_scraper_dynamo, params, item
 
 
-@mock_dynamodb2
+@mock_dynamodb
 def test_persist_listings_success(dynamodb, dynamo_parameters, capsys):
     """
     Attempt to display an empty dataframe
@@ -68,7 +68,7 @@ def test_persist_listings_success(dynamodb, dynamo_parameters, capsys):
     assert "Inserted listing 41343512 to Dynamo table" in captured.out
 
 
-@mock_dynamodb2
+@mock_dynamodb
 def test_persist_listings_duplicate(dynamodb, dynamo_parameters, capsys):
     """
     Attempt to display an empty dataframe
