@@ -88,5 +88,11 @@
         "keyword": "C#",
         "slack_webhook_secret": "lpenz-ws-slack-webhook",
         "country": "NZ"
+    },
+    {
+        "classification": 6281,
+        "keyword": "engineering manager",
+        "slack_webhook_secret": "mpenz-ws-slack-webhook",
+        "country": "NZ"
     }
 ]
