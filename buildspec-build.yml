@@ -12,6 +12,8 @@ phases:
       - apt install python3-pip -y -qq
   build:
     commands:
+      - which python
+      - python --version
       - mkdir -p target/stg
       - serverless package --package target/stg --stage stg -r us-east-1 --verbose
 artifacts:
