@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.9
     commands:
       - npm -v
       - node -v
@@ -12,4 +14,6 @@ phases:
       - apt install python3-pip -y -qq
   build:
     commands:
+      - which python
+      - python --version
       - serverless deploy --stage $env --package $CODEBUILD_SRC_DIR/target/$env -r us-east-1 --verbose
