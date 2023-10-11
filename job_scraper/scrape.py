@@ -64,6 +64,7 @@ def main(
 
 
 def lambda_handler(event, context):
+    # read configuration
     with open("job_scraper/job_filters.json") as f:
         job_filters = json.load(f)
 
