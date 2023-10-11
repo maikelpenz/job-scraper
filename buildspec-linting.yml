@@ -8,9 +8,12 @@ phases:
       - apt update -qq
       - apt install python3-pip -y -qq
       - pip install flake8 --quiet
+      - pip install poetry --quiet
   build:
     commands:
       - which python
       - python --version
+      - poetry export --without-hashes -f requirements.txt -o requirements.txt --with-credentials
+      - less requirements.txt
       # run Flake 8 for code linting
       - flake8 --statistics
