@@ -12,6 +12,7 @@ provider:
 custom:
   pythonRequirements:
     dockerizePip: non-linux
+    usePoetry: false
 
 package:
   exclude:
