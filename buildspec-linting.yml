@@ -2,11 +2,15 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.9
     commands:
       - apt update -qq
       - apt install python3-pip -y -qq
       - pip install flake8 --quiet
   build:
     commands:
+      - which python
+      - python --version
       # run Flake 8 for code linting
       - flake8 --statistics

@@ -2,6 +2,8 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      python: 3.9
     commands:
       - apt update -qq
       - apt install python3-pip -y -qq
@@ -9,5 +11,7 @@ phases:
       - poetry install
   build:
     commands:
+      - which python
+      - python --version
       # run pytest
       - poetry run pytest -v --disable-pytest-warnings --cov=job_scraper
