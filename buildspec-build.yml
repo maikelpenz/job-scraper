@@ -12,10 +12,13 @@ phases:
       - npm install --save-dev serverless-iam-roles-per-function --silent
       - apt update -qq
       - apt install python3-pip -y -qq
+      - pip install poetry --quiet
   build:
     commands:
       - which python
       - python --version
+      - poetry export --without-hashes -f requirements.txt -o requirements.txt --with-credentials
+      - less requirements.txt
       - mkdir -p target/stg
       - serverless package --package target/stg --stage stg -r us-east-1 --verbose
 artifacts:
