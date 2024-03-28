@@ -23,7 +23,7 @@ package:
 
 functions:
   job_scraper:
-    handler: job_scraper/scrape.lambda_handler
+    handler: job_scraper/main.lambda_handler
     name: dev-job-scraper
     timeout: 600
     events:

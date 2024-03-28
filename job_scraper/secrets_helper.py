@@ -6,6 +6,13 @@ from botocore.exceptions import ClientError
 
 
 class SecretsException(Exception):
+    """
+    An exception raised for errors related to AWS Secrets Manager.
+
+    This exception is raised when a secret doesn't exist or when
+    there's an issue retrieving it.
+    """
+
     pass
 
 
@@ -15,20 +22,24 @@ class SecretsHelper:
     """
 
     def __init__(self) -> None:
-        """ Constructor method"""
+        """Constructor method"""
         self.client = boto3.client("secretsmanager", region_name="us-east-1")
 
     def get_secret(self, secret_name: str) -> str:
         """
-        Reads the slack webhook from secrets manager
+        Retrieve the value of a secret from AWS Secrets Manager.
 
-        Arguments:
-            secret_name {str} -- Name of the slack webhook secret stored on AWS
+        Args:
+            secret_name (str): The name of the secret stored
+                in AWS Secrets Manager.
 
-        returns:
-            {str} -- Slack webhook
+        Returns:
+            str: The value of the secret.
+
+        Raises:
+            SecretsException: If the secret doesn't exist or if there's
+                an error retrieving it.
         """
-
         try:
             get_secret_value_response = self.client.get_secret_value(
                 SecretId=secret_name

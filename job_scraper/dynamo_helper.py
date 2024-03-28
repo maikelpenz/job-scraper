@@ -3,6 +3,12 @@ from botocore.exceptions import ClientError
 
 
 class DynamoException(Exception):
+    """
+    Exception class for DynamoDB operations.
+
+    This exception is raised when an error occurs during DynamoDB operations,
+    such as querying, inserting, updating, or deleting data.
+    """
     pass
 
 
@@ -11,12 +17,19 @@ class DynamoHelper:
         """ Constructor method"""
         self.client = boto3.client("dynamodb", region_name="us-east-1")
 
-    def dynamo_persist(self, table_name: str, item: dict) -> None:
-        """ Insert json documents to Dynamo table
+    def dynamo_persist(self, table_name: str, item: dict) -> dict:
+        """
+        Insert a JSON document into a DynamoDB table.
 
-        Arguments:
-            table_name {str} -- Dynamo table name
-            item {dict} -- What to insert
+        Args:
+            table_name (str): The name of the DynamoDB table.
+            item (dict): The item to insert into the table.
+
+        Returns:
+            dict: Response from DynamoDB after the operation.
+
+        Raises:
+            DynamoException: If there is an issue with DynamoDB operations.
         """
         try:
             response = self.client.put_item(
@@ -32,5 +45,4 @@ class DynamoHelper:
                 raise DynamoException("Dynamo table does not exist")
             else:
                 raise e
-
         return response
