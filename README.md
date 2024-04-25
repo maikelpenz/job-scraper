@@ -166,16 +166,16 @@ If you log into your AWS account you can check the [Code Pipeline](https://aws.a
 
 ### .: Local Development :.
 
-If you want to run `tests` and `linting` locally use `pipenv`
+If you want to run `tests` and `linting` locally use `poetry`
 
-* Install `pipenv` on your machine<br>
-  `pip install pipenv`
+* Install `poetry` on your machine. For example, using brew on mac<br>
+  `brew install poetry`
 
-* Sync<br>
-  `pipenv sync --dev`
+* Install<br>
+  `poetry install`
 
 * Enter shell mode<br>
-  `pipenv shell`
+  `poetry shell`
 
 * Run linting<br>
   `flake8 --statistics`

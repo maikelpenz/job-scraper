@@ -2,6 +2,12 @@ import requests
 
 
 class SlackException(Exception):
+    """
+    An exception raised for errors related to Slack communication.
+
+    This exception is raised when encountering an invalid
+        Slack webhook or when there's an issue sending a message.
+    """
     pass
 
 
@@ -15,10 +21,19 @@ class SlackHelper:
         self.headers = {"Content-Type": "application/json"}
 
     def send_slack_message(self, webhook: str, json: str) -> int:
-        """ Sends slack message
+        """
+        Send a message to Slack using a webhook.
 
-        Arguments:
-            json {str} -- json document
+        Args:
+            webhook (str): The webhook URL provided by Slack to send messages.
+            json (dict): The JSON document containing the message to be sent.
+
+        Returns:
+            int: The HTTP status code of the response.
+
+        Raises:
+            SlackException: If there's an error sending the message,
+                such as an invalid webhook URL.
         """
         try:
             response = requests.post(
